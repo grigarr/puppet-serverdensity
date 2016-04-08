@@ -21,7 +21,8 @@ class serverdensity_agent::apt {
     repos       => 'main',
     key         => '4381EE1BA673897A16AC92D43B2F6FF074371316',
     key_source  => $repo_keyurl,
-    include_src => false
+    include_src => false,
+    notify      => Class['apt::update'],
   }
   package {
     'sd-agent':
